@@ -21,6 +21,15 @@ A ComfyUI custom node implementation of [OmniGen](https://github.com/VectorSpace
   1. open the terminal on the `ComfyUI/custom_nodes/AILab_OmniGen` folder
   2. `..\..\..\python_embeded\python.exe -m pip install -r requirements.txt`
 
+<details>
+<summary><h3>Auto-Download Feature</h3></summary>
+
+The node includes automatic downloading of:
+1. OmniGen code from GitHub repository
+2. Model weights from Hugging Face
+</details>
+
+No manual file downloading is required. The node will handle everything automatically on first use.
 >[!IMPORTANT]
 >The first time you use this custom node, it will automatically download the model from Hugging Face. Please be patient, as the download size is approximately 15.5 GB, and it may take some time to complete.
 >
@@ -74,14 +83,6 @@ The node will automatically download required files on first use:
 - `separate_cfg_infer`: Separate inference process for different guidance (default: True)
 - `offload_model`: Offload model to CPU to reduce memory usage (default: True)
 - `use_input_image_size_as_output`: Match output size to input image (default: False) 
-
-## Auto-Download Feature
-
-The node includes automatic downloading of:
-1. OmniGen code from GitHub repository
-2. Model weights from Hugging Face
-
-No manual file downloading is required. The node will handle everything automatically on first use.
 </details>
 <details>
 <summary><h2>Creadits</h2></summary>
