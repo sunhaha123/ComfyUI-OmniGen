@@ -27,9 +27,8 @@ A ComfyUI custom node implementation of [OmniGen](https://github.com/VectorSpace
 The node includes automatic downloading of:
 1. OmniGen code from GitHub repository
 2. Model weights from Hugging Face
-</details>
 
-No manual file downloading is required. The node will handle everything automatically on first use.
+No manual file downloading is required. The node will handle everything automatically on first use.</details>
 >[!IMPORTANT]
 >The first time you use this custom node, it will automatically download the model from Hugging Face. Please be patient, as the download size is approximately 15.5 GB, and it may take some time to complete.
 >
