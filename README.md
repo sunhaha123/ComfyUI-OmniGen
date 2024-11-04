@@ -21,6 +21,13 @@ A ComfyUI custom node implementation of [OmniGen](https://github.com/VectorSpace
   1. open the terminal on the `ComfyUI/custom_nodes/AILab_OmniGen` folder
   2. `..\..\..\python_embeded\python.exe -m pip install -r requirements.txt`
 
+>[!IMPORTANT]
+>The first time you use this custom node, it will automatically download the model from Hugging Face. Please be patient, as the download size is approximately 15.5 GB, and it may take some time to complete.
+>
+>Alternatively, you can manually download the model from Hugging Face at the following link:
+>Download OmniGen-v1 from [Hugging Face](https://huggingface.co/Shitao/OmniGen-v1/tree/main)
+>After downloading, place the model in the following directory: `comfyui/models/LLM/OmniGen-v1`
+
 ### Exsample workflows
 Simple useage for text to image & image to image
 ![Simple useage for text to image & image to image](/Examples/omnigen_1.png)
