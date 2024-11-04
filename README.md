@@ -18,7 +18,7 @@ A ComfyUI custom node implementation of [OmniGen](https://github.com/VectorSpace
   3. restart ComfyUI
 
 ## Install the required Python packages:
-  1. open the terminal on the ComfyUI `ComfyUI/custom_nodes/AILab_OmniGen` folder
+  1. open the terminal on the `ComfyUI/custom_nodes/AILab_OmniGen` folder
   2. `..\..\..\python_embeded\python.exe -m pip install -r requirements.txt`
 
 ### Exsample workflows
