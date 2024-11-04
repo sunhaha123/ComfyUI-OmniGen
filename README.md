@@ -14,7 +14,7 @@ A ComfyUI custom node implementation of [OmniGen](https://github.com/VectorSpace
 
 ## Installation
   1. open the terminal on the ComfyUI `ComfyUI/custom_nodes` folder
-  2. digit: `https://github.com/1038lab/ComfyUI-OmniGen.git`
+  2. Run `git clone https://github.com/1038lab/ComfyUI-OmniGen.git`
   3. restart ComfyUI
 
 ## Install the required Python packages:
