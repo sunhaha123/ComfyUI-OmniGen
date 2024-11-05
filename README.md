@@ -37,11 +37,14 @@ No manual file downloading is required. The node will handle everything automati
 >After downloading, place the model in the following directory: `comfyui/models/LLM/OmniGen-v1`
 
 ### Exsample workflows
-Simple useage for text to image & image to image
+Simple useage for text to image & image to image.
 ![Simple useage for text to image & image to image](/Examples/omnigen_1.png)
 
-Generate 2 image and combine image
+Generate 2 image and combine image.
 ![Simple useage for text to image & image to image](/Examples/omnigen_2a.png)
+
+Generate a depth map from the input image and create a new image based on the depth map.
+![Simple useage for text to image & image to image](/Examples/imgs/deaptnmapToImage.jpg)
 
 
 ### Example prompts:
@@ -52,11 +55,11 @@ Generate 2 image and combine image
 | Transform `image_1` into an oil painting | <img src="/Examples/imgs/wm1.png" width="100"> |  |  | <img src="/Examples/imgs/wm1op.png" width="125"> |
 | Transform `image_2` into an Anime | <img src="/Examples/imgs/m1.png" width="100"> |  |  | <img src="/Examples/imgs/m1a.png" width="125"> |
 | the girl in `image_1` sitting on rock on top of the mountain. | <img src="/Examples/imgs/wm1.png" width="100"> |  |  | <img src="/Examples/imgs/wm1mt.png" width="125"> |
-| A woman from `image_1` and a man from `image_2` are sitting across from each other at a cozy coffee shop, each holding a cup of coffee and engaging in conversation. | <img src="/Examples/imgs/wm1.png" width="100"> | <img src="/Examples/imgs/m1.png" width="100"> |  | <img src="/Examples/imgs/cs.png" width="300"> |
+| A woman from `image_1` and a man from `image_2` are sitting across from each other at a cozy coffee shop, each holding a cup of coffee and engaging in conversation. | <img src="/Examples/imgs/wm1.png" width="100"> | <img src="/Examples/imgs/m1.png" width="100"> |  | <img src="/Examples/imgs/cs.jpg" width="300"> |
 | Combine `image1` and `image2` in anime style. | <img src="/Examples/imgs/wm1.png" width="100"> | <img src="/Examples/imgs/m1.png" width="100"> |  | <img src="/Examples/imgs/anime.png" width="300"> |
 | Detect the skeleton of a human in this image: `image_1` | <img src="/Examples/imgs/m1.png" width="100"> |  |  | <img src="/Examples/imgs/m1_skeleton.png" width="300"> |
 | Detect the depth map of a human in this image: `image_1` | <img src="/Examples/imgs/m1.png" width="100"> |  |  | <img src="/Examples/imgs/m1_depthmap.png" width="300"> |
-| Following the depth mapping of this image `image_1`, generate a new photo: an elderly couple sitting at a cozy coffee shop. The scene should feature the couple enjoying a peaceful moment together at a table. The elderly man, with a gray beard and glasses, and the woman, with short silver hair and a soft cardigan, are sipping coffee and smiling at each other. The atmosphere is warm, with soft, ambient lighting and a blurred background of other patrons, shelves of books, and cafe decorations. The depth and textures from `image_1` should be integrated to emphasize the intimate, serene setting. | <img src="/Examples/imgs/cs.png" width="100"> |   |  | <img src="/Examples/imgs/cs_oc.png" width="300"> |
+| Following the depth mapping of this image `image_1`, generate a new photo: an elderly couple sitting at a cozy coffee shop. The scene should feature the couple enjoying a peaceful moment together at a table. The elderly man, with a gray beard and glasses, and the woman, with short silver hair and a soft cardigan, are sipping coffee and smiling at each other. The atmosphere is warm, with soft, ambient lighting and a blurred background of other patrons, shelves of books, and cafe decorations. The depth and textures from `image_1` should be integrated to emphasize the intimate, serene setting. | <img src="/Examples/imgs/cs.jpg" width="100"> |   |  | <img src="/Examples/imgs/cs_oc.jpg" width="300"> |
 
 <details>
 <summary><h2>Using Images in Prompts and Settings</h2></summary>
