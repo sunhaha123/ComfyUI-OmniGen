@@ -36,21 +36,24 @@ class ailab_OmniGen:
             raise RuntimeError("Failed to import OmniGen. Please check if the code was downloaded correctly.")
         
     def _ensure_code_exists(self):
-        """Ensure OmniGen code exists, download from GitHub if not"""
+        """Ensure OmniGen code exists, download from Hugging Face if not"""
         try:
             if not osp.exists(Paths.OMNIGEN_CODE_DIR):
-                print("Downloading OmniGen code from GitHub...")
+                print("Downloading OmniGen code from Hugging Face...")
                 
-                # First get the repository structure
-                api_url = "https://api.github.com/repos/VectorSpaceLab/OmniGen/contents/OmniGen"
-                response = requests.get(api_url)
-                if response.status_code != 200:
-                    raise RuntimeError("Failed to get repository structure")
-                
-                files = [file['name'] for file in response.json() if file['type'] == 'file']
+                # Files to download from Hugging Face
+                files = [
+                    "model.py",
+                    "pipeline.py",
+                    "processor.py",
+                    "scheduler.py",
+                    "transformer.py",
+                    "utils.py",
+                    "__init__.py"
+                ]
                 
                 os.makedirs(Paths.OMNIGEN_CODE_DIR, exist_ok=True)
-                base_url = "https://raw.githubusercontent.com/VectorSpaceLab/OmniGen/main/OmniGen/"
+                base_url = "https://huggingface.co/spaces/Shitao/OmniGen/raw/main/OmniGen/"
                 
                 for file in files:
                     url = base_url + file
@@ -58,8 +61,9 @@ class ailab_OmniGen:
                     if response.status_code == 200:
                         with open(osp.join(Paths.OMNIGEN_CODE_DIR, file), 'wb') as f:
                             f.write(response.content)
+                        print(f"Downloaded {file}")
                     else:
-                        raise RuntimeError(f"Failed to download {file}")
+                        raise RuntimeError(f"Failed to download {file}: {response.status_code}")
                 
                 print("OmniGen code setup completed")
                 
@@ -110,8 +114,8 @@ class ailab_OmniGen:
         return {
             "required": {
                 "prompt": ("STRING", {"multiline": True, "forceInput": False, "default": ""}),
-                "guidance_scale": ("FLOAT", {"default": 2.5, "min": 1.0, "max": 5.0, "step": 0.1, "round": 0.01}),
-                "img_guidance_scale": ("FLOAT", {"default": 1.6, "min": 1.0, "max": 2.0, "step": 0.1, "round": 0.01}),
+                "guidance_scale": ("FLOAT", {"default": 3.5, "min": 1.0, "max": 5.0, "step": 0.1, "round": 0.01}),
+                "img_guidance_scale": ("FLOAT", {"default": 1.8, "min": 1.0, "max": 2.0, "step": 0.1, "round": 0.01}),
                 "num_inference_steps": ("INT", {"default": 50, "min": 1, "max": 100, "step": 1}),
                 "separate_cfg_infer": ("BOOLEAN", {"default": True}),
                 "offload_model": ("BOOLEAN", {"default": False}),
@@ -130,7 +134,7 @@ class ailab_OmniGen:
     
     RETURN_TYPES = ("IMAGE",)
     FUNCTION = "generation"
-    CATEGORY = "🧪AILab/beta"
+    CATEGORY = "🧪AILab/OmniGen"
 
     def save_input_img(self, image):
         try:
@@ -213,5 +217,5 @@ NODE_CLASS_MAPPINGS = {
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "ailab_OmniGen": "OmniGen 🖼"
+    "ailab_OmniGen": "OmniGen 🖼️"
 }
