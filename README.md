@@ -88,6 +88,5 @@ The node will automatically download required files on first use:
 <details>
 <summary><h2>Creadits</h2></summary>
 
-- Original OmniGen Model: [VectorSpaceLab/OmniGen](https://github.com/VectorSpaceLab/OmniGen)
 - Model Weights: [Shitao/OmniGen-v1](https://huggingface.co/Shitao/OmniGen-v1)
 </deatils>
