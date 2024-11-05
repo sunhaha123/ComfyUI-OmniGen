@@ -65,7 +65,7 @@ Generate a depth map from the input image and create a new image based on the de
 <summary><h2>Using Images in Prompts and Settings</h2></summary>
   
 You can reference input images in your prompt using either format:
-- `<img><|image_1|>`,`</img><img><|image_2|></img>`,`<img><|image_3|></img>`
+- `<img><|image_1|></img>`, `<img><|image_2|></img>`, `<img><|image_3|></img>`
 - `image_1`, `image_2`, `image_3`
 - `image1`, `image2`, `image3`
 
