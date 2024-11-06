@@ -41,26 +41,28 @@ Simple useage for text to image & image to image.
 ![Simple useage for text to image & image to image](/Examples/omnigen_1.png)
 
 Generate 2 image and combine image.
-![Simple useage for text to image & image to image](/Examples/omnigen_2a.png)
+![Generate 2 image and combine image.](/Examples/omnigen_2a.png)
+
+Following the pose of this image `image_1`, generate a new photo: An viking old man standing.
+![Following the pose of this image `image_1`, generate a new photo: An viking old man standing.](/Examples/imgs/PoseToImage_wf.jpg)
 
 Generate a depth map from the input image and create a new image based on the depth map.
-![Simple useage for text to image & image to image](/Examples/imgs/deaptnmapToImage.jpg)
-
+![Generate a depth map from the input image and create a new image based on the depth map.](/Examples/imgs/deaptnmapToImage_wf.jpg)
 
 ### Example prompts:
   
 | Prompt | Image_1 | Image_2 | Image_3 | Output |
 | ------ | ------ | ------ | ------ | ------ |
-| 20yo woman looking at viewer |  |  |  | <img src="/Examples/imgs/wm1.png" width="125"> |
-| Transform `image_1` into an oil painting | <img src="/Examples/imgs/wm1.png" width="100"> |  |  | <img src="/Examples/imgs/wm1op.png" width="125"> |
-| Transform `image_2` into an Anime | <img src="/Examples/imgs/m1.png" width="100"> |  |  | <img src="/Examples/imgs/m1a.png" width="125"> |
-| the girl in `image_1` sitting on rock on top of the mountain. | <img src="/Examples/imgs/wm1.png" width="100"> |  |  | <img src="/Examples/imgs/wm1mt.png" width="125"> |
-| A woman from `image_1` and a man from `image_2` are sitting across from each other at a cozy coffee shop, each holding a cup of coffee and engaging in conversation. | <img src="/Examples/imgs/wm1.png" width="100"> | <img src="/Examples/imgs/m1.png" width="100"> |  | <img src="/Examples/imgs/cs.jpg" width="300"> |
-| Combine `image1` and `image2` in anime style. | <img src="/Examples/imgs/wm1.png" width="100"> | <img src="/Examples/imgs/m1.png" width="100"> |  | <img src="/Examples/imgs/anime.png" width="300"> |
-| Detect the skeleton of a human in this image: `image_1` | <img src="/Examples/imgs/m1.png" width="100"> |  |  | <img src="/Examples/imgs/m1_skeleton.png" width="300"> |
-| Detect the depth map of a human in this image: `image_1` | <img src="/Examples/imgs/m1.png" width="100"> |  |  | <img src="/Examples/imgs/m1_depthmap.png" width="300"> |
+| 20yo woman looking at viewer |  |  |  | <img src="/Examples/imgs/wm1.jpg" width="125"> |
+| Transform `image_1` into an oil painting | <img src="/Examples/imgs/wm1.jpg" width="100"> |  |  | <img src="/Examples/imgs/wm1op.jpg" width="125"> |
+| Transform `image_2` into an Anime | <img src="/Examples/imgs/m1.jpg" width="100"> |  |  | <img src="/Examples/imgs/m1a.jpg" width="125"> |
+| the girl in `image_1` sitting on rock on top of the mountain. | <img src="/Examples/imgs/wm1.jpg" width="100"> |  |  | <img src="/Examples/imgs/wm1mt.jpg" width="125"> |
+| Combine `image1` and `image2` in anime style. | <img src="/Examples/imgs/wm1.jpg" width="100"> | <img src="/Examples/imgs/m1.jpg" width="100"> |  | <img src="/Examples/imgs/anime.jpg" width="300"> |
+| A woman from `image_1` and a man from `image_2` are sitting across from each other at a cozy coffee shop, each holding a cup of coffee and engaging in conversation. | <img src="/Examples/imgs/wm1.jpg" width="100"> | <img src="/Examples/imgs/m1.jpg" width="100"> |  | <img src="/Examples/imgs/cs.jpg" width="300"> |
 | Following the depth mapping of this image `image_1`, generate a new photo: an elderly couple sitting at a cozy coffee shop. The scene should feature the couple enjoying a peaceful moment together at a table. The elderly man, with a gray beard and glasses, and the woman, with short silver hair and a soft cardigan, are sipping coffee and smiling at each other. The atmosphere is warm, with soft, ambient lighting and a blurred background of other patrons, shelves of books, and cafe decorations. The depth and textures from `image_1` should be integrated to emphasize the intimate, serene setting. | <img src="/Examples/imgs/cs.jpg" width="100"> |   |  | <img src="/Examples/imgs/cs_oc.jpg" width="300"> |
-
+| Detect the skeleton of a human in this image: `image_1` | <img src="/Examples/imgs/m1.jpg" width="100"> |  |  | <img src="/Examples/imgs/m1_skeleton.jpg" width="300"> |
+| Following the pose of this image `image_1`, generate a new photo: An viking old man standing | <img src="/Examples/imgs/m1_skeleton.jpg" width="100"> |  |  | <img src="/Examples/imgs/PoseToImage.jpg" width="300"> |
+| Detect the depth map of a human in this image: `image_1` | <img src="/Examples/imgs/m1.jpg" width="100"> |  |  | <img src="/Examples/imgs/m1_depthmap.jpg" width="300"> |
 <details>
 <summary><h2>Using Images in Prompts and Settings</h2></summary>
   
