@@ -124,6 +124,7 @@ class ailab_OmniGen:
                 "height": ("INT", {"default": 1024, "min": 128, "max": 2048, "step": 16}),
                 "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff}),
                 "max_input_image_size": ("INT", {"default": 1024, "min": 128, "max": 2048, "step": 16}),
+                "attn_implementation": (["eager", "sdpa"], {"default": "eager"}),
             },
             "optional": {
                 "image_1": ("IMAGE",),
@@ -174,10 +175,21 @@ class ailab_OmniGen:
 
     def generation(self, prompt, num_inference_steps, guidance_scale,
             img_guidance_scale, max_input_image_size, separate_cfg_infer, offload_model,
-            use_input_image_size_as_output, width, height, seed, image_1=None, image_2=None, image_3=None):
+            use_input_image_size_as_output, width, height, seed, image_1=None, image_2=None, image_3=None, attn_implementation="sdpa"):
         try:
             self._setup_temp_dir()
-            pipe = self.OmniGenPipeline.from_pretrained(Paths.OMNIGEN_DIR)
+            try:
+                # First try with default sdpa mode
+                pipe = self.OmniGenPipeline.from_pretrained(Paths.OMNIGEN_DIR)
+            except Exception as e:
+                if "does not support an attention implementation" in str(e):
+                    print("Warning: Switching to eager attention implementation")
+                    pipe = self.OmniGenPipeline.from_pretrained(
+                        Paths.OMNIGEN_DIR,
+                        attn_implementation="eager"
+                    )
+                else:
+                    raise e
             
             # Process prompt and images
             prompt, input_images = self._process_prompt_and_images(prompt, [image_1, image_2, image_3])
