@@ -13,6 +13,10 @@ A ComfyUI custom node implementation of [OmniGen](https://github.com/VectorSpace
 </details>
 
 ## Installation
+#### 1. ComfyUI-Manager
+  1. sreach for `ComfyUI-OmniGen` on [Comfyui Manager](https://github.com/ltdrdata/ComfyUI-Manager) and install it.
+  2. restart ComfyUI
+#### 2. Git Clone
   1. open the terminal on the ComfyUI `ComfyUI/custom_nodes` folder
   2. Run `git clone https://github.com/1038lab/ComfyUI-OmniGen.git`
   3. restart ComfyUI
