@@ -116,11 +116,11 @@ class ailab_OmniGen:
         try:
             import torch
             if hasattr(torch.nn.functional, 'scaled_dot_product_attention'):
-                return "sdpa"
+                return True
         except Exception as e:
             print(f"Warning: SDPA not supported, falling back to eager attention implementation")
         
-        return "eager"
+        return False
 
     @classmethod
     def INPUT_TYPES(s):
@@ -190,11 +190,17 @@ class ailab_OmniGen:
             use_input_image_size_as_output, width, height, seed, image_1=None, image_2=None, image_3=None):
         try:
             self._setup_temp_dir()
-            # Use the pre-detected attention implementation
+            # Default to SDPA
             pipe = self.OmniGenPipeline.from_pretrained(
-                Paths.OMNIGEN_DIR,
-                attn_implementation=self.attn_implementation
+                Paths.OMNIGEN_DIR
             )
+            
+            # Switch to eager mode only if SDPA is not supported
+            if not self._check_sdpa_support():
+                if hasattr(pipe, 'text_encoder'):
+                    pipe.text_encoder.config.attn_implementation = "eager"
+                if hasattr(pipe, 'unet'):
+                    pipe.unet.config.attn_implementation = "eager"
             
             # Process prompt and images
             prompt, input_images = self._process_prompt_and_images(prompt, [image_1, image_2, image_3])
