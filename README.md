@@ -3,7 +3,7 @@
 A ComfyUI custom node implementation of [OmniGen](https://github.com/VectorSpaceLab/OmniGen), a powerful text-to-image generation and editing model.
 
 <details>
-<summary><h2>Featrues</h2></summary>
+<summary><h2>Features</h2></summary>
   
 - Text-to-Image Generation
 - Image Editing
@@ -14,15 +14,15 @@ A ComfyUI custom node implementation of [OmniGen](https://github.com/VectorSpace
 
 ## Installation
 #### 1. ComfyUI-Manager
-  1. sreach for `ComfyUI-OmniGen` on [Comfyui Manager](https://github.com/ltdrdata/ComfyUI-Manager) and install it.
-  2. restart ComfyUI
+  1. Search for `ComfyUI-OmniGen` on [ComfyUI Manager](https://github.com/ltdrdata/ComfyUI-Manager) and install it.
+  2. Restart ComfyUI
 #### 2. Git Clone
-  1. open the terminal on the ComfyUI `ComfyUI/custom_nodes` folder
+  1. Open the terminal on the ComfyUI `ComfyUI/custom_nodes` folder
   2. Run `git clone https://github.com/1038lab/ComfyUI-OmniGen.git`
-  3. restart ComfyUI
+  3. Restart ComfyUI
 
 ## Install the required Python packages:
-  1. open the terminal on the `ComfyUI/custom_nodes/ComfyUI-OmniGen` folder
+  1. Open the terminal on the `ComfyUI/custom_nodes/ComfyUI-OmniGen` folder
   2. `..\..\..\python_embeded\python.exe -m pip install -r requirements.txt`
 
 <details>
@@ -40,12 +40,12 @@ No manual file downloading is required. The node will handle everything automati
 >Download OmniGen-v1 from [Hugging Face](https://huggingface.co/Shitao/OmniGen-v1/tree/main)
 >After downloading, place the model in the following directory: `comfyui/models/LLM/OmniGen-v1`
 
-### Exsample workflows
-Simple useage for text to image & image to image.
-![Simple useage for text to image & image to image](/Examples/omnigen_1.png)
+### Example workflows
+Simple usage for text to image & image to image.
+![Simple usage for text to image & image to image](/Examples/omnigen_1.png)
 
-Generate 2 image and combine image.
-![Generate 2 image and combine image.](/Examples/omnigen_2a.png)
+Generate an image that combines 2 images.
+![Generate an image that combines multiple images.](/Examples/omnigen_2a.png)
 
 Following the pose of this image `image_1`, generate a new photo: An viking old man standing.
 ![Following the pose of this image `image_1`, generate a new photo: An viking old man standing.](/Examples/imgs/PoseToImage_wf.jpg)
@@ -68,7 +68,7 @@ Deblur this image. `image_1`
 | A woman from `image_1` and a man from `image_2` are sitting across from each other at a cozy coffee shop, each holding a cup of coffee and engaging in conversation. | ![wm1](Examples/imgs/wm1.jpg) | ![m1](Examples/imgs/m1.jpg) |  | ![cs](Examples/imgs/cs.jpg) |
 | Following the depth mapping of this image `image_1`, generate a new photo: an elderly couple sitting at a cozy coffee shop. The scene should feature the couple enjoying a peaceful moment together at a table. The elderly man, with a gray beard and glasses, and the woman, with short silver hair and a soft cardigan, are sipping coffee and smiling at each other. The atmosphere is warm, with soft, ambient lighting and a blurred background of other patrons, shelves of books, and cafe decorations. The depth and textures from `image_1` should be integrated to emphasize the intimate, serene setting. | ![cs](Examples/imgs/cs.jpg) |   |  | ![cs_oc](Examples/imgs/cs_oc.jpg) |
 | Detect the skeleton of a human in this image: `image_1` | ![m1](Examples/imgs/m1.jpg) |  |  | ![m1_skeleton](Examples/imgs/m1_skeleton.jpg) |
-| Following the pose of this image `image_1`, generate a new photo: An viking old man standing | ![m1_skeleton](Examples/imgs/m1_skeleton.jpg) |  |  | ![PoseToImage](Examples/imgs/PoseToImage.jpg) |
+| Following the pose of this image `image_1`, generate a new photo: A viking old man standing | ![m1_skeleton](Examples/imgs/m1_skeleton.jpg) |  |  | ![PoseToImage](Examples/imgs/PoseToImage.jpg) |
 | Detect the depth map of a human in this image: `image_1` | ![m1](Examples/imgs/m1.jpg) |  |  | ![m1_depthmap](Examples/imgs/m1_depthmap.jpg) |
 | Deblur this image: `image_1` | ![blur](Examples/imgs/blur.jpg) |  |  | ![deblur](Examples/imgs/deblur.jpg) |
 
@@ -100,7 +100,7 @@ The node will automatically download required files on first use:
 - `use_input_image_size_as_output`: Match output size to input image (default: False) 
 </details>
 <details>
-<summary><h2>Creadits</h2></summary>
+<summary><h2>Creadit</h2></summary>
 
 - Model Weights: [Shitao/OmniGen-v1](https://huggingface.co/Shitao/OmniGen-v1)
-</deatils>
+</details>
