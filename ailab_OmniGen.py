@@ -31,6 +31,8 @@ class ailab_OmniGen:
         try:
             from OmniGen import OmniGenPipeline
             self.OmniGenPipeline = OmniGenPipeline
+            # Check SDPA support at initialization
+            self.attn_implementation = self._check_sdpa_support()
         except ImportError as e:
             print(f"Error importing OmniGen: {e}")
             raise RuntimeError("Failed to import OmniGen. Please check if the code was downloaded correctly.")
@@ -88,8 +90,8 @@ class ailab_OmniGen:
                     local_dir=Paths.OMNIGEN_DIR,
                     local_dir_use_symlinks=False,
                     resume_download=True,
-                    token=None,  # Add your token if needed
-                    tqdm_class=None,  # This will use default progress bar
+                    token=None,
+                    tqdm_class=None,
                 )
                 print("OmniGen model downloaded successfully")
             else:
@@ -108,6 +110,17 @@ class ailab_OmniGen:
         """Clean up temporary directory"""
         if osp.exists(Paths.TMP_DIR):
             shutil.rmtree(Paths.TMP_DIR)
+
+    def _check_sdpa_support(self):
+        """Check if system supports SDPA"""
+        try:
+            import torch
+            if hasattr(torch.nn.functional, 'scaled_dot_product_attention'):
+                return "sdpa"
+        except Exception as e:
+            print(f"Warning: SDPA not supported, falling back to eager attention implementation")
+        
+        return "eager"
 
     @classmethod
     def INPUT_TYPES(s):
@@ -177,7 +190,11 @@ class ailab_OmniGen:
             use_input_image_size_as_output, width, height, seed, image_1=None, image_2=None, image_3=None):
         try:
             self._setup_temp_dir()
-            pipe = self.OmniGenPipeline.from_pretrained(Paths.OMNIGEN_DIR)
+            # Use the pre-detected attention implementation
+            pipe = self.OmniGenPipeline.from_pretrained(
+                Paths.OMNIGEN_DIR,
+                attn_implementation=self.attn_implementation
+            )
             
             # Process prompt and images
             prompt, input_images = self._process_prompt_and_images(prompt, [image_1, image_2, image_3])
