@@ -46,10 +46,10 @@ No manual file downloading is required. The node will handle everything automati
 
 ### Example workflows
 Simple usage for text to image & image to image.
-![Simple usage for text to image & image to image](/Examples/omnigen_1.png)
+![Simple usage for text to image & image to image](/Examples/imgs/omnigen_t2i_i2i.jpg)
 
 Generate an image that combines 2 images.
-![Generate an image that combines multiple images.](/Examples/omnigen_2a.png)
+![Generate an image that combines multiple images.](/Examples/imgs/omnigen_combine.jpg)
 
 Following the pose of this image `image_1`, generate a new photo: An viking old man standing.
 ![Following the pose of this image `image_1`, generate a new photo: An viking old man standing.](/Examples/imgs/PoseToImage_wf.jpg)
