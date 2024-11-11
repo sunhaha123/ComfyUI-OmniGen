@@ -74,7 +74,7 @@ class ailab_OmniGen:
                 ]
                 
                 os.makedirs(Paths.OMNIGEN_CODE_DIR, exist_ok=True)
-                base_url = "https://huggingface.co/spaces/Shitao/OmniGen/raw/main/OmniGen/"
+                base_url = "https://huggingface.co/spaces/Shitao/OmniGen/tree/main/OmniGen"
                 
                 for file in files:
                     url = base_url + file
