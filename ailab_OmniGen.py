@@ -155,8 +155,8 @@ class ailab_OmniGen:
     def _auto_select_precision(self):
         """Automatically select precision based on available VRAM"""
         if torch.cuda.is_available():
-            vram_size = torch.cuda.get_device_properties(0).total_memory / 1024**3  # GB
-            if vram_size < 8:  # 如果VRAM小于8GB
+            vram_size = torch.cuda.get_device_properties(0).total_memory / 1024**3
+            if vram_size < 8:
                 print(f"Auto selecting FP8 (Available VRAM: {vram_size:.1f}GB)")
                 return "FP8"
         print(f"Auto selecting FP16 (Available VRAM: {vram_size:.1f}GB)")
@@ -307,13 +307,11 @@ class ailab_OmniGen:
             use_input_image_size_as_output, width, height, seed,
             image_1=None, image_2=None, image_3=None):
         try:
-            # 如果选择Auto，自动选择精度
             if model_precision == "Auto":
                 model_precision = self._auto_select_precision()
             
             self._setup_temp_dir()
             
-            # 清理现有实例如果精度不匹配
             if self._model_instance and self._current_precision != model_precision:
                 print(f"Precision changed from {self._current_precision} to {model_precision}, clearing instance")
                 self._model_instance = None
@@ -322,7 +320,6 @@ class ailab_OmniGen:
                     torch.cuda.empty_cache()
                     print("VRAM cleared")
                     
-            # 内存管理策略
             if memory_management == "Memory Priority":
                 print("Memory Priority mode: Forcing pipeline recreation")
                 self._model_instance = None
