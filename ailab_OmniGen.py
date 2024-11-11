@@ -57,15 +57,14 @@ class ailab_OmniGen:
             raise RuntimeError("Failed to import OmniGen. Please check if the code was downloaded correctly.")
 
     def _ensure_code_exists(self):
-        """Ensure OmniGen code exists, download from Hugging Face if not"""
+        """Ensure OmniGen code exists, download from GitHub if not"""
         try:
             if not osp.exists(Paths.OMNIGEN_CODE_DIR):
-                print("Downloading OmniGen code from Hugging Face...")
-                
-                # Files to download from Hugging Face
+                print("Downloading OmniGen code from GitHub...")
+
                 files = [
                     "model.py",
-                    "pipeline.py",
+                    "pipeline.py", 
                     "processor.py",
                     "scheduler.py",
                     "transformer.py",
@@ -74,7 +73,7 @@ class ailab_OmniGen:
                 ]
                 
                 os.makedirs(Paths.OMNIGEN_CODE_DIR, exist_ok=True)
-                base_url = "https://huggingface.co/spaces/Shitao/OmniGen/tree/main/OmniGen"
+                base_url = "https://raw.githubusercontent.com/VectorSpaceLab/OmniGen/main/OmniGen/"
                 
                 for file in files:
                     url = base_url + file
@@ -307,11 +306,13 @@ class ailab_OmniGen:
             use_input_image_size_as_output, width, height, seed,
             image_1=None, image_2=None, image_3=None):
         try:
+            # Auto select precision if Auto is chosen
             if model_precision == "Auto":
                 model_precision = self._auto_select_precision()
             
             self._setup_temp_dir()
             
+            # Clear existing instance if precision doesn't match
             if self._model_instance and self._current_precision != model_precision:
                 print(f"Precision changed from {self._current_precision} to {model_precision}, clearing instance")
                 self._model_instance = None
@@ -320,6 +321,7 @@ class ailab_OmniGen:
                     torch.cuda.empty_cache()
                     print("VRAM cleared")
                     
+            # Memory management strategy
             if memory_management == "Memory Priority":
                 print("Memory Priority mode: Forcing pipeline recreation")
                 self._model_instance = None
