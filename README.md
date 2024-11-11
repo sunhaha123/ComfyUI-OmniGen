@@ -4,7 +4,7 @@ A ComfyUI custom node implementation of OmniGen, a powerful all in one text-to-i
 
 ## Updates
 
-- 2024/11/11: Added new features and bug fixes. Refer to [update.md](update.md) for details.
+- 2024/11/11: Added new features and bug fixes. Refer to [update.md](UPDATE.md) for details.
 
 <details>
 <summary><h2>Features</h2></summary>
