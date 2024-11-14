@@ -1,6 +1,6 @@
 {
-  "last_node_id": 9,
-  "last_link_id": 10,
+  "last_node_id": 11,
+  "last_link_id": 13,
   "nodes": [
     {
       "id": 3,
@@ -20,7 +20,7 @@
         {
           "name": "images",
           "type": "IMAGE",
-          "link": 8,
+          "link": 11,
           "label": "images"
         }
       ],
@@ -31,15 +31,43 @@
       "widgets_values": []
     },
     {
-      "id": 7,
-      "type": "ailab_OmniGen",
+      "id": 9,
+      "type": "PreviewImage",
       "pos": {
-        "0": 40,
+        "0": 1430,
         "1": 60
       },
       "size": {
-        "0": 392.06988525390625,
-        "1": 438.5042419433594
+        "0": 516.1412353515625,
+        "1": 824.7374267578125
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 12,
+          "label": "images"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 10,
+      "type": "ailab_OmniGen",
+      "pos": {
+        "0": 33,
+        "1": 60
+      },
+      "size": {
+        "0": 400,
+        "1": 428
       },
       "flags": {},
       "order": 0,
@@ -72,11 +100,11 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            8,
-            9
+            11,
+            13
           ],
-          "slot_index": 0,
-          "label": "IMAGE"
+          "label": "IMAGE",
+          "slot_index": 0
         }
       ],
       "properties": {
@@ -84,29 +112,31 @@
       },
       "widgets_values": [
         "20yo woman looking at viewer",
+        "",
+        "Auto",
+        "Balanced",
         3.5,
         1.8,
         50,
         true,
         false,
-        false,
         512,
-        768,
-        999,
-        "fixed",
+        512,
+        0,
+        "randomize",
         1024
       ]
     },
     {
-      "id": 8,
+      "id": 11,
       "type": "ailab_OmniGen",
       "pos": {
-        "0": 1020,
+        "0": 1013,
         "1": 60
       },
       "size": {
-        "0": 392.06988525390625,
-        "1": 438.5042419433594
+        "0": 400,
+        "1": 428
       },
       "flags": {},
       "order": 2,
@@ -115,7 +145,7 @@
         {
           "name": "image_1",
           "type": "IMAGE",
-          "link": 9,
+          "link": 13,
           "shape": 7,
           "label": "image_1"
         },
@@ -139,81 +169,55 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            10
+            12
           ],
-          "slot_index": 0,
-          "label": "IMAGE"
+          "label": "IMAGE",
+          "slot_index": 0
         }
       ],
       "properties": {
         "Node name for S&R": "ailab_OmniGen"
       },
       "widgets_values": [
-        "the girl in image_1 sitting on rock on top of the mountain.",
+        "The girl in image_1 sitting on rock on top of the mountain (image_1)",
+        "",
+        "Auto",
+        "Balanced",
         3.5,
         1.8,
         50,
         true,
         false,
-        false,
         512,
-        768,
-        1000,
-        "fixed",
+        512,
+        0,
+        "randomize",
         1024
       ]
-    },
-    {
-      "id": 9,
-      "type": "PreviewImage",
-      "pos": {
-        "0": 1430,
-        "1": 60
-      },
-      "size": {
-        "0": 516.1412353515625,
-        "1": 824.7374267578125
-      },
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 10,
-          "label": "images"
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "PreviewImage"
-      },
-      "widgets_values": []
     }
   ],
   "links": [
     [
-      8,
-      7,
+      11,
+      10,
       0,
       3,
       0,
       "IMAGE"
     ],
     [
-      9,
-      7,
+      12,
+      11,
       0,
-      8,
+      9,
       0,
       "IMAGE"
     ],
     [
+      13,
       10,
-      8,
       0,
-      9,
+      11,
       0,
       "IMAGE"
     ]
@@ -222,10 +226,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.5131581182307067,
+      "scale": 1.0834705943388678,
       "offset": [
-        439.1410749758485,
-        186.947776940519
+        454.5646998745825,
+        206.62789963508953
       ]
     }
   },
