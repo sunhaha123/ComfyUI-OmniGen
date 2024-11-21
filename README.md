@@ -2,6 +2,9 @@
 
 A ComfyUI custom node implementation of OmniGen, a powerful all in one text-to-image generation and editing model.
 
+$${\color{red}If\ this\ custom\ node\ helps\ you\ or\ you\ like\ my\ work,\ please\ give\ me⭐on\ this\ repo!}$$
+$${\color{red}It's\ a\ greatest\ encouragement\ for\ my\ efforts!}$$
+
 ## Updates
 
 - 2024/11/11: Added new features and bug fixes. Refer to [update.md](UPDATE.md) for details.
