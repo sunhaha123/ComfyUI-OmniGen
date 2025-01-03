@@ -25,6 +25,10 @@ dependencies = [
     "safetensors>=0.3.0",
 ]
 
+[tool.comfy]
+PublisherId = "AILab"
+DisplayName = "ComfyUI-OmniGen"
+Icon = ""
 
 [project.urls]
 Homepage = "https://github.com/1038lab/ComfyUI-OmniGen"
