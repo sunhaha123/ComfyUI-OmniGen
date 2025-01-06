@@ -31,8 +31,7 @@ DisplayName = "ComfyUI-OmniGen"
 Icon = ""
 
 [project.urls]
-Homepage = "https://github.com/1038lab/ComfyUI-OmniGen"
-Repository = "https://github.com/1038lab/ComfyUI-OmniGen.git" 
+Repository = "https://github.com/1038lab/ComfyUI-OmniGen" 
 
 [tool.setuptools]
 PublisherId = "AILab"
