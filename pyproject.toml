@@ -23,6 +23,6 @@ Repository = "https://github.com/1038lab/ComfyUI-OmniGen"
 #  Used by Comfy Registry https://comfyregistry.org
 
 [tool.comfy]
-PublisherId = "AILab"
+PublisherId = "ailab"
 DisplayName = "ComfyUI-OmniGen"
 Icon = ""
