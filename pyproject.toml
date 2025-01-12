@@ -1,5 +1,5 @@
 [project]
-name = "ComfyUI-OmniGen"
+name = "comfyui-omnigen"
 version = "1.2.0"
 description = "OmniGen node for AI image generation"
 readme = "README.md"
